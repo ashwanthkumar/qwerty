@@ -17,12 +17,8 @@
   <div class="header">Choose mode</div>
   <div class="navigation">o--o--o</div>
   <div class="page mode">
-    <div class="bus">
-      <img src="./images/">
-    </div>
-    <div class="flight">
-      <img src="./images/">
-    </div>
+    <div class="bus"></div>
+    <div class="flight"></div>
   </div>
   <div class="page info">
     <div class="form">
@@ -37,7 +33,7 @@
       </div>
       <div>
         <select disabled>
-          <option>Loading...</option>
+          <option>Retrieving...</option>
         </select>
       </div>
       <div class="travel-info">
@@ -61,22 +57,3 @@
   </div>
   </body>
 </html>
-<script type="text/javascript">
-  var seatingArray = [
-    [1,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1],
-    [0,0,0,0,0,0,0,1],
-    [0,1,1,1,1,1,1,1],
-    [1,1,1,1,1,1,1,1]
-  ]
-  var html = "";
-  for(var i=0; i<seatingArray.length; i++){
-    html += "<div class='row'>";
-    for(var j=0; j<seatingArray[i].length; j++){
-      html += "<div class='seat available-"+seatingArray[i][j]+" number-"+i+j+"'></div>"
-    }
-    html += "</div>";
-  }
-
-  $('.page.book .image-container').html(html)
-</script>
