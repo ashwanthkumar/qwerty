@@ -28,8 +28,17 @@ $(function(){
   $('.page.mode div').click(function(){
     qwerty.mode = $(this).attr('class');
     qwerty.animate(2, $(this).attr('class'));
-    $('.page.mode').fadeOut(400, function(){
-      $('.page.info').fadeIn();
+    $('.page.mode').fadeOut(200, function(){
+      $('.page.info').fadeIn(200);
+    });
+  });
+
+  //STEP 2
+  $('.page.info .arrow-back').click(function(){
+    qwerty.animate(1, qwerty.mode);
+    delete qwerty.mode;
+    $('.page.info').fadeOut(200, function(){
+      $('.page.mode').fadeIn(200);
     });
   });
 
