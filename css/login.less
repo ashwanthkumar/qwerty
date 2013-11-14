@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Road-Radio;
+  src: url(../fonts/RoadRadio-Thin.ttf);
+}
+
+body{
+  font-family: "Road-Radio", Verdana, Tahoma;
+  background-color: #eee;
+  letter-spacing: 1px;
+  //Bootstrap override
+  .btn{
+    border-radius: 0;
+  }
+
+  .header{
+    //
+  }
+
+  .login{
+    text-align: center;
+    .linkedin-holder{
+      margin-top: 30px;
+    }
+    .linkedin-login,.facebook-login{
+      background-image: none;
+      font-size: 16px;
+      &:hover{
+        background-color: #1C3975;
+      }
+      &:active{
+        background-color: black;
+      }
+    }
+    .facebook-login{
+      background-color: #3B5998;
+      border-color: #1C3975;
+    }
+    .linkedin-login{
+      background-color: #4875B4;
+      border-color: #517BB6;
+    }
+  }
+}
