@@ -135,6 +135,11 @@ function userLogin() {
 	}
 }
 
+function userLogout() {
+	unset($_SESSION['already_user_id']);
+	return header("Location: ". APP_BASE_DOMAIN);
+}
+
 function searchBuses() {
 	$from = $_GET['from'];
 	$to = $_GET['to'];

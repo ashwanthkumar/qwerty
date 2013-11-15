@@ -11,6 +11,7 @@
 	dispatch_post("/bus/travel", 'persionalizeBusLayout');
 	dispatch("/bus/travel/book/:travel_id", 'bookTravelBook');
 	dispatch("/user/login", 'userLogin');
+	dispatch("/user/logout", 'userLogout');
 	dispatch("/user/join/linkedIn", 'linkedInAdded');
 	dispatch("/user/join/facebook", 'facebookAdded');
 
