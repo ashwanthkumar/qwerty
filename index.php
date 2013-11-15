@@ -9,7 +9,7 @@
 	dispatch("/app", 'actualApp');
 	dispatch("/bus/search", "searchBuses");
 	dispatch_post("/bus/travel", 'persionalizeBusLayout');
-	dispatch_post("/bus/travel/book/:travel_id", 'bookTravelBook');
+	dispatch("/bus/travel/book/:travel_id", 'bookTravelBook');
 	dispatch("/user/login", 'userLogin');
 	dispatch("/user/join/linkedIn", 'linkedInAdded');
 	dispatch("/user/join/facebook", 'facebookAdded');
@@ -23,7 +23,7 @@ function actualApp() {
 
 function loginApp() {
 	if(isset($_SESSION['already_user_id'])){
-		return header("Location: ./?user_id=" . $_SESSION['already_user_id']);
+		return header("Location: ./app?user_id=" . $_SESSION['already_user_id']);
 	} else {
 		return render("login.html");
 	}

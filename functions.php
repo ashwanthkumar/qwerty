@@ -241,5 +241,18 @@ function calculateSimilarity($userId, $matchingUser) {
 }
 
 function bookTravelBook() {
+	$travelId = params("travel_id");
+	$user_id = $_GET['user_id'];
+	$seat_number = $_GET['seat_number'];
 
+	$db = $GLOBALS['db'];
+
+	$insert_data = array(
+		"users_idusers" => $user_id,
+		"itinerary_iditinerary" => $travelId,
+		"seat_number" => $seat_number
+	);
+
+	$db->insert("itinerary_has_users", $insert_data);
+	return json(array("success" => true));
 }
