@@ -5,10 +5,10 @@
 	require_once("functions.php");
 
 	dispatch("/", 'actualApp');
+	dispatch("/login", 'loginApp');
 	dispatch("/app", 'actualApp');
 	dispatch("/bus/search", "searchBuses");
-	dispatch("/bus/travel/:travel_id", 'getBusLayoutForTravelId');
-	dispatch_post("/bus/travel/:bus_id/personalize", 'persionalizeBusLayout');
+	dispatch_post("/bus/travel", 'persionalizeBusLayout');
 	dispatch_post("/bus/travel/book/:travel_id", 'bookTravelBook');
 	dispatch("/user/login", 'userLogin');
 	dispatch("/user/join/linkedIn", 'linkedInAdded');
@@ -18,8 +18,13 @@
 
 
 function actualApp() {
-	$additionContent = "";
-	if(array_key_exists("type", $_GET)) $additionContent .= "You cam here from " . $_GET['type'];
-	if(array_key_exists("userid", $_GET)) $additionContent .= ". UserID => " . $_GET['userid'];
-	return "Hello World. $additionContent";
+	return render('index.html');
+}
+
+function loginApp() {
+	if(isset($_SESSION['already_user_id'])){
+		return header("Location: ./?user_id=" . $_SESSION['already_user_id']);
+	} else {
+		return render("login.html");
+	}
 }

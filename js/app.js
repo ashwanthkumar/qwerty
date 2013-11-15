@@ -65,7 +65,7 @@ $(function(){
     if(qwerty.from && qwerty.to && qwerty.date){
       try{ qwerty.xhr && qwerty.xhr.abort();} catch(e){}
       qwerty.xhr = $.ajax({
-        url: '/bus/search',
+        url: './bus/search',
         type: 'GET',
         data: {from: qwerty.from, to: qwerty.to, date: qwerty.date},
         success: function(data){
@@ -79,9 +79,9 @@ $(function(){
             try{ qwerty.xhr2 && qwerty.xhr2.abort();} catch(e){}
             $('.page.book .image-container').animate({'opacity': '0.2'}).prepend('<div class="loading">Loading</div>');
             qwerty.xhr2 = $.ajax({//load data for next page
-              url: '/bus/travel/' + qwerty.bus_id,
+              url: './bus/travel',
               type: 'POST',
-              data: {user_id: qwerty.user_id, from: qwerty.from, to: qwerty.to, date: qwerty.date},
+              data: {user_id: qwerty.user_id, from: qwerty.from, to: qwerty.to, date: qwerty.date, bus_id: qwerty.bus_id},
               success: function(data){
                 var travel_id = data.travel_id;
                 data = data.data;
@@ -113,13 +113,13 @@ $(function(){
                   qwerty.seat_number = (i*8)+j;
                   $('.page.book .arrow-next').removeClass('disabled').click(function(){
                     $.ajax({
-                      url: '/bus/travel/book/'+travel_id,
+                      url: './bus/travel/book/'+travel_id,
                       data: {user_id: qwerty.user_id, seat_number: qwerty.seat_number},
                       success: function(){
                         window.location.href="./thank_you.html";
                       },
                       error: function(){
-                        alert('server error');
+                        //alert('server error');
                         throw 'server error';
                       }
                     });
@@ -127,7 +127,7 @@ $(function(){
                 });
               },
               error: function(){
-                alert('server error');
+                //alert('server error');
                 throw 'server error';
               },
               complete: function(){}
@@ -151,7 +151,7 @@ $(function(){
           });
         },
         error: function(){
-          alert('server error');
+          //alert('server error');
           throw 'server error';
         },
         complete: function(){}
@@ -159,7 +159,7 @@ $(function(){
     }
   };
   $('.page.info .form .date').datepicker().on('change',function(ev){//date change
-    qwerty.date = $.datepicker.formatDate('yyyymmdd', $('.date').datepicker("getDate"));
+    qwerty.date = $.datepicker.formatDate('yymmdd', $('.date').datepicker("getDate"));
     checkFields();
   });
   $('.page.info .form').find('.from,.to').keyup(function(){//from,to change

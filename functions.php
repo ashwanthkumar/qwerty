@@ -51,7 +51,7 @@ function linkedInAdded() {
 	}
 
 	addLinkedInSkills($info['skills'], $userId);
-
+	$_SESSION['already_user_id'] = $userId;
 	return header("Location: /qwerty/app?user_id=$userId&type=linkedin");
 }
 
@@ -111,6 +111,7 @@ function facebookAdded() {
 
 	$books = $facebook->api("/me/books");
 	addFacebookLikes($books['data'], "books", $userId);
+	$_SESSION['already_user_id'] = $userId;
 	return header("Location: /qwerty/app?user_id=$userId&type=facebook");
 }
 
@@ -130,13 +131,14 @@ function userLogin() {
 		header("Location: {$loginUrl}");
 	} else {
 		// Something fundamentally wrong
+		halt("Something fundamentally went wrong here!");
 	}
 }
 
 function searchBuses() {
 	$from = $_GET['from'];
 	$to = $_GET['to'];
-	$date_of_travel = $_GET['traveldate'];
+	$date_of_travel = $_GET['date'];
 
 	$bus = $GLOBALS['bus'];
 	$busses = $bus->searchBuses($from, $to, $date_of_travel);
@@ -166,7 +168,7 @@ function persionalizeBusLayout() {
 	$db = $GLOBALS['db'];
 
 	$userId = $_POST['user_id'];
-	$bus_id = params("bus_id");
+	$bus_id = $_POST["bus_id"];
 	$source = $_POST['from'];
 	$destination = $_POST['to'];
 	$travel_date = $_POST['date'];
