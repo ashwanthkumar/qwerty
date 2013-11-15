@@ -171,7 +171,7 @@ function persionalizeBusLayout() {
 	$bus_id = $_POST["bus_id"];
 	$source = $_POST['from'];
 	$destination = $_POST['to'];
-	$travel_date = $_POST['date'];
+	$travel_date = date('Y-m-d H:i:s', strtotime($_POST['date']));
 
 	// Create a new Itinery (if not already present) or 
 	// get the existing itinery's ID

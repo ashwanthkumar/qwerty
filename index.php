@@ -18,6 +18,10 @@
 
 
 function actualApp() {
+	if(!isset($_SESSION['already_user_id'])){
+		return header("Location: ./login");
+	}
+
 	return render('index.html');
 }
 

@@ -82,7 +82,7 @@ $(function(){
             qwerty.xhr2 = $.ajax({//load data for next page
               url: './bus/travel',
               type: 'POST',
-              data: {user_id: qwerty.user_id, from: qwerty.from, to: qwerty.to, date: qwerty.date+' '+$(this).text()+':00', bus_id: qwerty.bus_id},
+              data: {user_id: qwerty.user_id, from: qwerty.from, to: qwerty.to, date: qwerty.date+' '+$(this).find('option[value="'+$(this).val()+'"]').text()+':00', bus_id: qwerty.bus_id},
               success: function(data){
                 var travel_id = data.travel_id;
                 data = data.data;
