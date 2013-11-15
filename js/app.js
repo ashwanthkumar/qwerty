@@ -101,7 +101,7 @@ $(function(){
                         <div class="books" style="width:'+seat.matches.books+'%"></div>\
                         <div class="movies" style="width:'+seat.matches.movies+'%"></div>\
                         <div class="skills" style="width:'+seat.matches.skills+'%"></div>\
-                      ').popover({
+                      ').unbind('click').popover({
                       html: true,
                       placement: 'auto top',
                       // trigger: 'hover',
@@ -113,7 +113,7 @@ $(function(){
                     $('.page.book .image-container .number-'+i+j).addClass('booked');
                   }
                 };
-                $('.seat.available-1:not(.booked):not(.match)').click(function(){
+                $('.seat.available-1:not(.booked):not(.match)').unbind('click').click(function(){
                   $('.seat.available-1:not(.booked):not(.match)').removeClass('selected');
                   $(this).addClass('selected');
                   var ij = $(this).attr('class').match(/number-\d\d/g)[0],
