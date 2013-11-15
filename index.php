@@ -4,7 +4,7 @@
 	require_once("lib/limonade.php");
 	require_once("functions.php");
 
-	dispatch("/", 'actualApp');
+	dispatch("/", 'homePageCheck');
 	dispatch("/login", 'loginApp');
 	dispatch("/app", 'actualApp');
 	dispatch("/bus/search", "searchBuses");
@@ -17,11 +17,15 @@
 	run();
 
 
-function actualApp() {
+function homePageCheck() {
 	if(!isset($_SESSION['already_user_id'])){
 		return header("Location: ./login");
 	}
 
+	return header("Location: ./app?user_id=" . $_SESSION['already_user_id']);
+}
+
+function actualApp() {
 	return render('index.html');
 }
 
