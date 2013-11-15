@@ -15,6 +15,9 @@ body{
   .logo{
     margin-left: 20px;
     position: absolute;
+    img{
+      width: 50px;
+    }
   }
   .header{
     text-align: center;
@@ -24,18 +27,20 @@ body{
     }
   }
   .navigation{
-    width: 260px;
+    width: 350px;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 60px;
     position: relative;
     .path1,.path2{
       border-top: 3px solid;
       position: absolute;
-      width: 50%;
+      width: 100%;
     }
     .path2{
-      left: 50%;
+      left: 0;
+      width: 0;
+      border-color: #1ada22;
     }
     .circle{
       height: 15px;
@@ -49,12 +54,27 @@ body{
         background-color: #1ada22;
       }
       &.mid{
-        left: 125px;
+        left: 170px;
       }
       &.right{
         left: auto;
         right: -8px;
       }
+    }
+    .bus-icon,.flight-icon{
+      position: absolute;
+      top: 10px;
+      margin-left: -15px;
+      left: 0;
+      width: 25px;
+      height: 25px;
+    }
+    .bus-icon{
+      background-image: url('../images/bus-mini.png');
+    }
+    .flight-icon{
+      top: -32px;
+      background-image: url('../images/flight-mini.png');
     }
   }
   .page{
@@ -66,22 +86,35 @@ body{
         height: 250px;
         margin: 50px;
         background-color: #333;
+        position: relative;
         &:hover{
           background-color: #666;
         }
         &:active{
           background-color: #000;
         }
+        div{
+          position: absolute;
+          bottom: 10px;
+          font-size: 35px;
+          width: 100%;
+          color: #fff;
+        }
       }
       .bus{
-        background-image: url('') no-repeat;
+        background-image: url('../images/bus-big.png');
+        background-repeat: no-repeat;
+        background-position: 10px 85px;
       }
       .flight{
-        background-image: url('') no-repeat;
+        background-image: url('../images/flight-big.png');
+        background-repeat: no-repeat;
+        background-position: 43px 20px;
       }
     }
     &.info,&.book{
       display: none;
+      margin-top: 100px;
     }
     &.info{
       .form{
@@ -124,12 +157,13 @@ body{
       .image-container{
         display: inline-block;
         width: 585px;
+        position: relative;
         .row{
           margin-bottom: 7px;
           .seat{
             width: 60px;
             height: 60px;
-            background-color: #666;
+            background-color: #1f9e07;
             display: inline-block;
             margin-left: 15px;
             box-shadow: inset 0 0 10px 5px rgba(0,0,0,0.2);
@@ -140,7 +174,20 @@ body{
               background-color: transparent;
               box-shadow: none;
             }
+            &.booked{
+              background-color: #666;
+            }
+            &.match{
+              background-color: #d1c904;
+            }
           }
+        }
+        .loading{
+          position: absolute;
+          width: 100%;
+          font-size: 80px;
+          color: #00F;
+          margin-top: 115px;
         }
       }
       .legend{
