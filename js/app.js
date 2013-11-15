@@ -152,6 +152,7 @@ $(function(){
               }
             };
           });
+          $('.page.info .form select').val($('.page.info .form select option:first').val());
           $('.page.info .arrow-next').removeClass('disabled').click(function(){
             qwerty.animate(3, qwerty.mode);
             $('.page.info').fadeOut(200, function(){
