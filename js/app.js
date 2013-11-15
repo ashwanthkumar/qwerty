@@ -147,7 +147,7 @@ $(function(){
                 $('.page.info .form .travel-info')
                   .show().find('.vehicle')
                   .html(bus.travels +'('+bus.bus_type+')')
-                  .parent().find('.fare').html('<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Indian_Rupee_symbol.svg/7px-Indian_Rupee_symbol.svg.png"> ' + bus.fare);
+                  .parent().find('.fare').html('<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Indian_Rupee_symbol.svg/10px-Indian_Rupee_symbol.svg.png"> ' + bus.fare);
                 break;
               }
             };
