@@ -71,7 +71,7 @@ $(function(){
         success: function(data){
           var html = '';
           data = _.map(_.reduce(data, function(mem,x){mem[x.departure_time]=x; return mem;}, {}), function(V){return V;});//removing duplicate departure_time
-          data.sort(function(a,b){if(parseInt(a.departure_time)>parseInt(b.departure_time))return 1;return -1;});
+          data.sort(function(a,b){if(parseInt(a.departure_time)<parseInt(b.departure_time))return 1;return -1;});
           qwerty.data = data;
           for (var i = data.length - 1; i >= 0; i--) {
             html += '<option value="'+data[i].bus_id+'">'+data[i].departure_time+'</option>';
