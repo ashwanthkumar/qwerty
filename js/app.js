@@ -87,12 +87,14 @@ $(function(){
                 data = data.data;
                 $('.page.book .image-container').animate({'opacity': '1'}).find('.loading').remove();
                 //populate seats
-                for (var i = data.length - 1; i >= 0; i--) {
-                  var seat = data[i],
+                for (var k = data.length - 1; k >= 0; k--) {
+                  var seat = data[k],
                       i = Math.floor(+seat.seat_number / seatingArray[0].length),
                       j = +seat.seat_number % seatingArray[0].length;
-                  if(seat.matches){
-                    $('.page.book .image-container .number-'+i+j).addClass('match').html('\
+                  if(seat.matches) {
+                    $('.page.book .image-container .number-'+i+j)
+                    .addClass('match')
+                    .html('\
                         <div class="music" style="width:'+seat.matches.music+'%"></div>\
                         <div class="books" style="width:'+seat.matches.books+'%"></div>\
                         <div class="movies" style="width:'+seat.matches.movies+'%"></div>\
