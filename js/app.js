@@ -70,7 +70,8 @@ $(function(){
         data: {from: qwerty.from, to: qwerty.to, date: qwerty.date},
         success: function(data){
           var html = '';
-          data = _.map(_.reduce(data, function(mem,x){mem[x.departure_time]=x; return mem;}, {}), function(V){return V;});//removing duplicate departure_times
+          data = _.map(_.reduce(data, function(mem,x){mem[x.departure_time]=x; return mem;}, {}), function(V){return V;});//removing duplicate departure_time
+          data.sort(function(a,b){if(parseInt(a.departure_time)>parseInt(b.departure_time))return 1;return -1;});
           qwerty.data = data;
           for (var i = data.length - 1; i >= 0; i--) {
             html += '<option value="'+data[i].bus_id+'">'+data[i].departure_time+'</option>';
@@ -103,7 +104,7 @@ $(function(){
                       ').popover({
                       html: true,
                       placement: 'auto top',
-                      trigger: 'hover',
+                      // trigger: 'hover',
                       title: 'Matching Interests',
                       content: 'Music: '+seat.matches.music+'%<br>Books: '+seat.matches.books+'%<br>Movies: '+seat.matches.movies+'%<br>Skills: '+seat.matches.skills+'%',
                       container: 'body'
