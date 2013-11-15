@@ -204,9 +204,8 @@ function createNewItineryIfNotFound($bus_id, $departure_time, $source, $destinat
 	$db = $GLOBALS['db'];
 
 	$existingItinary = $db->select("itinerary", "source_name = :source AND destination_name = :destination 
-		AND travel_date = :travel_date AND bus_id = :bus_id", 
-		array(":source" => $source, ":destination" => $destination, ":travel_date" => $departure_time,
-			":bus_id" => $bus_id));
+		AND travel_date = :travel_date", 
+		array(":source" => $source, ":destination" => $destination, ":travel_date" => $departure_time));
 
 	if(count($existingItinary) > 0) {
 		// Already present, get the id
