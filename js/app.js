@@ -111,7 +111,7 @@ $(function(){
                       i = +ij.substr(-2,1),
                       j = +ij.substr(-1,1);
                   qwerty.seat_number = (i*8)+j;
-                  $('.page.book .arrow-next').click(function(){
+                  $('.page.book .arrow-next').removeClass('disabled').click(function(){
                     $.ajax({
                       url: '/bus/travel/book/'+travel_id,
                       data: {user_id: qwerty.user_id, seat_number: qwerty.seat_number},
