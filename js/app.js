@@ -70,6 +70,7 @@ $(function(){
         data: {from: qwerty.from, to: qwerty.to, date: qwerty.date},
         success: function(data){
           var html = '';
+          data = $.map(_.reduce(data, function(mem,x){mem[x.departure_time]=x; return mem;}, {}), function(V){return [V];});//removing duplicate departure_times
           qwerty.data = data;
           for (var i = data.length - 1; i >= 0; i--) {
             html += '<option value="'+data[i].bus_id+'">'+data[i].departure_time+'</option>';
