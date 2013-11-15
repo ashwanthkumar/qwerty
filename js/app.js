@@ -92,7 +92,12 @@ $(function(){
                       i = Math.floor(+seat.seat_number / seatingArray[0].length),
                       j = +seat.seat_number % seatingArray[0].length;
                   if(seat.matches && seat.matches.length){
-                    $('.page.book .image-container .number'+i+j).addClass('match').popover({
+                    $('.page.book .image-container .number'+i+j).addClass('match').html('\
+                        <div class="music" style="width:'+seat.matches.music+'%"></div>\
+                        <div class="books" style="width:'+seat.matches.books+'%"></div>\
+                        <div class="movies" style="width:'+seat.matches.movies+'%"></div>\
+                        <div class="skills" style="width:'+seat.matches.skills+'%"></div>\
+                      ').popover({
                       html: true,
                       placement: 'auto top',
                       trigger: 'hover',
