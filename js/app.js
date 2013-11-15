@@ -106,7 +106,7 @@ $(function(){
                       placement: 'auto top',
                       // trigger: 'hover',
                       title: 'Matching Interests',
-                      content: 'Music: '+seat.matches.music+'%<br>Books: '+seat.matches.books+'%<br>Movies: '+seat.matches.movies+'%<br>Skills: '+seat.matches.skills+'%',
+                      content: '<span class="music-pre"></span>Music: '+seat.matches.music+'%<br><span class="books-pre"></span>Books: '+seat.matches.books+'%<br><span class="movies-pre"></span>Movies: '+seat.matches.movies+'%<br><span class="skills-pre"></span>Skills: '+seat.matches.skills+'%',
                       container: 'body'
                     })
                   } else {
