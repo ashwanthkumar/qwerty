@@ -231,7 +231,7 @@ function calculateSimilarity($userId, $matchingUser) {
 
 	$db = $GLOBALS['db'];
 	$matchedSkills = $db->run("SELECT * FROM `users_has_skills` m1, `users_has_skills` m2 WHERE m1.skills_idskills = m2.skills_idskills AND m1.users_idusers != m2.users_idusers and m1.users_idusers = :user_id AND m2.users_idusers = :matching_user", array(":user_id" => $userId, ":matching_user" => $matchingUser));
-	$matchedBooks = $db->run("SELECT * FROM `users_has_books` m1, `users_has_books` m2 WHERE m1.books_idbooks = m2.books_idbooks AND m1.users_idusers != m2.users_idusers and m1.users_idusers = :user-id AND m2.users_idusers = :matching_user", array(":user_id" => $userId, ":matching_user" => $matchingUser));
+	$matchedBooks = $db->run("SELECT * FROM `users_has_books` m1, `users_has_books` m2 WHERE m1.books_idbooks = m2.books_idbooks AND m1.users_idusers != m2.users_idusers and m1.users_idusers = :user_id AND m2.users_idusers = :matching_user", array(":user_id" => $userId, ":matching_user" => $matchingUser));
 	$matchedMusic = $db->run("SELECT * FROM `users_has_music` m1, `users_has_music` m2 WHERE m1.music_idmusic = m2.music_idmusic AND m1.users_idusers != m2.users_idusers and m1.users_idusers = :user_id AND m2.users_idusers = :matching_user", array(":user_id" => $userId, ":matching_user" => $matchingUser));
 	$matchedMovies = $db->run("SELECT * FROM `users_has_movies` m1, `users_has_movies` m2 WHERE m1.movies_idmovies = m2.movies_idmovies AND m1.users_idusers != m2.users_idusers and m1.users_idusers = :user_id AND m2.users_idusers = :matching_user", array(":user_id" => $userId, ":matching_user" => $matchingUser));
 
